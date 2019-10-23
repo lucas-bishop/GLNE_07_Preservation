@@ -5,9 +5,9 @@
 # Snakemake file for running mothur pipeline in GLNE07_Preservation_Bias_XXXX_20XX
 
 readNum = ['R1', 'R2']
-mothurSamples = list(set(glob_wildcards(os.path.join('data/mothur/raw/', '{sample}_{readNum, R[12]}_001.fastq.gz')).sample))
+mothurSamples = list(set(glob_wildcards(os.path.join('/nfs/turbo/schloss-lab/begumtop/glne_sequences/', '{sample}_{readNum, R[12]}_001.fastq.gz')).sample))
 mothurMock = ['Mock1-Mock2-Mock3-Mock4']
-mothurWater= ['Water1-Water2-Water3-Water4']
+#mothurWater= ['Water1-Water2-Water3-Water4']
 mothurBuffer = ['buffer1-buffer2']
 mothurControl = ['Neg1-Neg2-Neg3-Neg4']
 mothurMockCells = ['MockCells1-MockCells2']
@@ -70,7 +70,7 @@ rule get16SMock:
 rule make16SShared:
 	input:
 		script="code/bash/mothurShared.sh",
-		raw=expand('data/mothur/raw/{mothurSamples}_{readNum}_001.fastq.gz',
+		raw=expand('/nfs/turbo/schloss-lab/begumtop/glne_sequences/{mothurSamples}_{readNum}_001.fastq.gz',
 			mothurSamples = mothurSamples, readNum = readNum),
 		silvaV4=rules.get16SReferences.output.silvaV4,
 		rdpFasta=rules.get16SReferences.output.rdpFasta,
@@ -87,7 +87,7 @@ rule make16SShared:
 	conda:
 		"envs/mothur.yaml"
 	shell:
-		"bash {input.script} data/mothur/raw/ {params.mockGroups} {params.controlGroups} {input.silvaV4} {input.rdpFasta} {input.rdpTax}"
+		"bash {input.script} /nfs/turbo/schloss-lab/begumtop/glne_sequences/ {params.mockGroups} {params.controlGroups} {input.silvaV4} {input.rdpFasta} {input.rdpTax}"
 
 
 rule count16SShared:
