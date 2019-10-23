@@ -1,0 +1,4 @@
+data/mothur/raw/*
+.DS_Store
+*/.DS_Store
+data/mothur/process/intermediate/*
