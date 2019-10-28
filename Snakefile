@@ -6,10 +6,8 @@
 
 readNum = ['R1', 'R2']
 mothurSamples = list(set(glob_wildcards(os.path.join('/nfs/turbo/schloss-lab/begumtop/glne_sequences/', '{sample}_{readNum, R[12]}_001.fastq.gz')).sample))
-mothurMock = ['Mock1-Mock2-Mock3-Mock4']
-#mothurWater= ['Water1-Water2-Water3-Water4']
-mothurBuffer = ['buffer1-buffer2']
-mothurControl = ['Neg1-Neg2-Neg3-Neg4']
+mothurMock = ['Mock1-Mock2-Mock3-Mock4-Mock5-Mock5-Mock6-Mock7-Mock8']
+mothurControl = ['Neg1-Neg2-Neg3-Neg4-Neg5-Neg6-Neg7-Neg8']
 mothurMockCells = ['MockCells1-MockCells2']
 
 rule all:

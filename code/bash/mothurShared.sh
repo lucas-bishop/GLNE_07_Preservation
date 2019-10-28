@@ -112,9 +112,9 @@ echo PROGRESS: Cleaning up working directory.
 mkdir -p "${OUTDIR}"/intermediate/
 
 # Deleting unneccessary files
-#rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.fasta")
-#rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.map")
-#rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.count_table")
+rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.fasta")
+rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.map")
+rm $(find "${OUTDIR}"/ -regex ".*filter.unique.precluster..*.count_table")
 
 # Moving all remaining intermediate files to the intermediate dir
 mv $(find "${OUTDIR}"/ -regex ".*\/stability.*") "${OUTDIR}"/intermediate
