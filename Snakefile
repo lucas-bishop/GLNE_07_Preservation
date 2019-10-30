@@ -19,7 +19,7 @@ mothurBeta = ['sharedsobs','thetayc','braycurtis']
 readNum = ['R1', 'R2']
 mothurSamples = list(set(glob_wildcards(os.path.join('/nfs/turbo/schloss-lab/begumtop/glne_sequences/', '{sample}_{readNum, R[12]}_001.fastq.gz')).sample))
 
-mothurGroups = ['sample','mock','control', 'buffer']
+mothurGroups = ['sample','mock','control','buffer']
 
 
 
@@ -116,6 +116,7 @@ rule split16SShared:
 	params:
 		mockGroups='-'.join(mothurMock), # Concatenates all mock group names with hyphens
 		controlGroups='-'.join(mothurControl) # Concatenates all control group names with hyphens
+		bufferGroups='-'.join(mothurBuffer) # Concatenates all control group names with hyphens
 	conda:
 		"envs/mothur.yaml"
 	shell:
