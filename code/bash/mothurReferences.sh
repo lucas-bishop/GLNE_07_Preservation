@@ -17,14 +17,14 @@ export OUTDIR=data/mothur/references # Directory for storing mothur reference fi
 # Preparing Mothur Reference Files #
 ####################################
 
-echo PROGRESS: Preparing mothur reference files. 
+echo PROGRESS: Preparing mothur reference files.
 
 # Making reference output directory
 mkdir -p "${OUTDIR}"/ "${OUTDIR}"/tmp/
 
 
 
-echo PROGRESS: Preparing SILVA database v4 sequence alignment files. 
+echo PROGRESS: Preparing SILVA database v4 sequence alignment files.
 
 # Downloading the prepared SILVA database from the mothur website
 # This version is from v132 and described at http://blog.mothur.org/2018/01/10/SILVA-v132-reference-files/
@@ -48,7 +48,7 @@ mv "${OUTDIR}"/silva.seed.pcr.align "${OUTDIR}"/silva.v4.align
 
 
 
-echo PROGRESS: Preparing Ribosomal Database Project taxonomy files. 
+echo PROGRESS: Preparing Ribosomal Database Project taxonomy files.
 
 # Downloading the prepared RDP database from the mothur website
 # For more information see http://blog.mothur.org/2017/03/15/RDP-v16-reference_files/

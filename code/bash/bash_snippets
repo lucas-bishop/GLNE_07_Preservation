@@ -1,0 +1,39 @@
+for file in *.gz; do mv "$file" `echo $file | tr '-' 'S'` ; done
+
+rename 'Water' Neg *.gz
+
+rm x-mistake*
+rm Undeter*
+
+rename 'buffer1b' bufferP2.1b *.gz
+rename 'buffer1' bufferP2.1 *.gz
+rename 'buffer2' bufferP2.2 *.gz
+rename 'buffer2b' bufferP2.2b *.gz
+rename 'buffer3' bufferP2.3 *.gz
+rename 'buffer4' bufferP2.4 *.gz
+rename 'buffer5' bufferP2.5 *.gz
+
+rename 'mock' Mock *.gz
+rename 'water' Neg *.gz
+
+rename 'Mock1_S95' Mock5_S95 *gz
+
+rename 'Mock2_S191' Mock6_S191 *gz
+
+rename 'Mock3_S287' Mock7_S287 *gz
+
+rename 'Mock4_S383' Mock8_S383 *gz
+
+rename 'Neg1_S91' Water5a_S91 *.gz
+rename 'Neg1b' Water5b *.gz
+rename 'Neg1c' Neg5 *.gz
+
+rename 'Neg2_S187' Water6a_S187 *.gz
+rename 'Neg2b' Water6b *.gz
+rename 'Neg2c' Neg6 *.gz
+
+rename 'Neg3a' Water7a *.gz
+rename 'Neg3b' Water7b *.gz
+rename 'Neg3c' Neg7 *.gz
+
+rename 'Neg4_S384' Neg8 *.gz

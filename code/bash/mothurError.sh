@@ -40,5 +40,3 @@ echo PROGRESS: Storing error logs.
 mkdir -p "${OUTDIR}"/error_analysis
 
 mv "${OUTDIR}"/errorinput.* "${OUTDIR}"/error_analysis/
-
-

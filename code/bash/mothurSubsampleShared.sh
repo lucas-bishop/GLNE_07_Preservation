@@ -9,7 +9,8 @@
 ##################
 
 # Set the variables to be used in this script
-export SHAREDLIST=${@} # Takes in all of the shared files supplied via command line
+export SHARED=${1:?ERROR: Need to define SHARED.} # Shared file
+export COUNT=${2:?ERROR: Need to define COUNT.} # Count file generated from shared file
 
 # Setting threshold for minimum number of reads to subsample
 export SUBTHRESH=1000
@@ -20,32 +21,14 @@ export SUBTHRESH=1000
 # Subsampling Shared Files #
 ############################
 
-# # Creating list of all group-specific shared files (ex: sample.final.shared, etc.)
-# SHAREDLIST=$(ls "${WORKDIR}"/ | grep "\.final\.shared$")
-
 # Subsampling reads based on count tables
-echo PROGRESS: Subsampling shared files.
+echo PROGRESS: Subsampling shared file.
 
-# Using $SUBTHRESH as threshold for choosing number of reads to subsample
-for SHARED in $(echo "${SHAREDLIST[@]}"); do
+# Pulling smallest number of reads greater than or equal to $SUBTHRESH for use in subsampling
+READCOUNT=$(awk -v SUBTHRESH="${SUBTHRESH}" '$2 >= SUBTHRESH { print $2}' "${COUNT}" | sort -n | head -n 1)
 
-	# Getting shared file prefix so it can be used to pull the right count file for use in setting subsample size
-	PREFIX=$(echo "${SHARED}" | rev | cut -d "." -f 2- | rev) # Removes .shared suffix and stores remaining string
+# Debugging message
+echo PROGRESS: Subsampling to "${READCOUNT}" reads.
 
-	# Pulling smallest number of reads greater than or equal to $SUBTHRESH for use in subsampling
-	READCOUNT=$(awk -v SUBTHRESH="${SUBTHRESH}" '$2 >= SUBTHRESH { print $2}' "${PREFIX}".count.summary | sort -n | head -n 1)
-
-	# If $READCOUNT is empty (no samples with reads above $SUBTHRESH), use the lowest number of reads from count file
-	# If set as $SUBTHRESH instead (comment/uncomment as needed), will not generate subsampled file for groups with less than $SUBTHRESH reads
-	if [ -z "${READCOUNT}" ]; then
-		# READCOUNT="${SUBTHRESH}"
-		READCOUNT=$(awk '{ print $2}' "${PREFIX}".count.summary | sort -n | head -n 1)
-	fi
-
-	# Debugging message
-	echo PROGRESS: Subsampling "${SHARED}" to "${READCOUNT}" reads.
-
-	# Subsampling reads based on $READCOUNT
-	mothur "#sub.sample(shared="${SHARED}", size="${READCOUNT}")"
-
-done
+# Subsampling reads based on $READCOUNT
+mothur "#sub.sample(shared="${SHARED}", size="${READCOUNT}")"

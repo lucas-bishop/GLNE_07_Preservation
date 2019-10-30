@@ -17,7 +17,7 @@ export OUTDIR=data/mothur/references # Directory for storing mothur reference fi
 # Running Pipeline #
 ####################
 
-echo PROGRESS: Preparing v4 mock sequence files for mothur. 
+echo PROGRESS: Preparing v4 mock sequence files for mothur.
 
 # Making reference output directory and a tmp dir for processing
 mkdir -p "${OUTDIR}"/ "${OUTDIR}"/tmp/
@@ -44,7 +44,7 @@ done
 cp "${OUTDIR}"/silva.seed.align "${OUTDIR}"/zymo.mock.16S.fasta "${OUTDIR}"/tmp/
 
 # Aligning mock sequences to the SILVA v4 region
-# Will generate the following warning message '[WARNING]: 4 of your sequences generated alignments that eliminated too many bases' 
+# Will generate the following warning message '[WARNING]: 4 of your sequences generated alignments that eliminated too many bases'
 # because 4 of the community sequences are from Cryptococcus and Saccharomyces so those will be filtered out
 mothur "#align.seqs(fasta="${OUTDIR}"/tmp/zymo.mock.16S.fasta, reference="${OUTDIR}"/tmp/silva.seed.align, processors=8);
 	pcr.seqs(fasta="${OUTDIR}"/tmp/zymo.mock.16S.align, start=11894, end=25319, keepdots=F);

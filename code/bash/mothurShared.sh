@@ -10,15 +10,14 @@
 
 # Set the variables to be used in this script
 export SAMPLEDIR=${1:?ERROR: Need to define SAMPLEDIR.}
-export MOCKGROUPS=${2:?ERROR: Need to define MOCKGROUPS.} # List of mock groups in raw data dir separated by '-'
-export CONTROLGROUPS=${3:?ERROR: Need to define CONTROLGROUPS.} # List of control groups in raw data dir separated by '-'
-export SILVAV4=${4:?ERROR: Need to define SILVAV4.}
-export RDPFASTA=${5:?ERROR: Need to define RDPFASTA.}
-export RDPTAX=${6:?ERROR: Need to define RDPTAX.}
-
+export SILVAV4=${2:?ERROR: Need to define SILVAV4.}
+export RDPFASTA=${3:?ERROR: Need to define RDPFASTA.}
+export RDPTAX=${4:?ERROR: Need to define RDPTAX.}
+# export MOCKGROUPS=${5:?ERROR: Need to define MOCKGROUPS.} # List of mock groups in raw data dir separated by '-'
+# export CONTROLGROUPS=${6:?ERROR: Need to define CONTROLGROUPS.} # List of control groups in raw data dir separated by '-'
 
 # Other variables
-export OUTDIR=data/mothur/process
+export OUTDIR=data/mothur/process/
 export COMBINEDGROUPS=$(echo "${MOCKGROUPS}"-"${CONTROLGROUPS}") # Combines the list of mock and control groups into a single string separated by '-'
 
 
@@ -65,40 +64,40 @@ mv "${OUTDIR}"/*.0.03.rep.count_table "${OUTDIR}"/final.rep.count_table
 
 
 
-####################################
-# Make Group-Specific Shared Files #
-####################################
+# ####################################
+# # Make Group-Specific Shared Files #
+# ####################################
 
-# Sample shared file
-echo PROGRESS: Creating sample shared file.
+# # Sample shared file
+# echo PROGRESS: Creating sample shared file.
 
-# Removing all mock and control groups from shared file leaving only samples
-mothur "#remove.groups(shared="${OUTDIR}"/final.shared, groups="${COMBINEDGROUPS}")"
+# # Removing all mock and control groups from shared file leaving only samples
+# mothur "#remove.groups(shared="${OUTDIR}"/final.shared, groups="${COMBINEDGROUPS}")"
 
-# Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/sample.final.shared
-
-
-
-# Mock shared file
-echo PROGRESS: Creating mock shared file.
-
-# Removing non-mock groups from shared file
-mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${MOCKGROUPS}")"
-
-# Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/mock.final.shared
+# # Renaming output file
+# mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/sample.final.shared
 
 
 
-# Control shared file
-echo PROGRESS: Creating control shared file.
+# # Mock shared file
+# echo PROGRESS: Creating mock shared file.
 
-# Removing any non-control groups from shared file
-mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${CONTROLGROUPS}")"
+# # Removing non-mock groups from shared file
+# mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${MOCKGROUPS}")"
 
-# Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/control.final.shared
+# # Renaming output file
+# mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/mock.final.shared
+
+
+
+# # Control shared file
+# echo PROGRESS: Creating control shared file.
+
+# # Removing any non-control groups from shared file
+# mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${CONTROLGROUPS}")"
+
+# # Renaming output file
+# mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/control.final.shared
 
 
 
