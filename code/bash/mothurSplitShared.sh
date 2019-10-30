@@ -11,10 +11,11 @@
 # Set the variables to be used in this script
 export MOCKGROUPS=${1:?ERROR: Need to define MOCKGROUPS.} # List of mock groups in raw data dir separated by '-'
 export CONTROLGROUPS=${2:?ERROR: Need to define CONTROLGROUPS.} # List of control groups in raw data dir separated by '-'
+export BUFFERGROUPS=${3:?ERROR: Need to define CONTROLGROUPS.} # List of control groups in raw data dir separated by '-'
 
 # Other variables
 export OUTDIR=data/mothur/process/
-export COMBINEDGROUPS=$(echo "${MOCKGROUPS}"-"${CONTROLGROUPS}") # Combines the list of mock and control groups into a single string separated by '-'
+export COMBINEDGROUPS=$(echo "${MOCKGROUPS}"-"${CONTROLGROUPS}"-"${BUFFERGROUPS}") # Combines the list of mock and control groups into a single string separated by '-'
 
 
 
@@ -50,5 +51,13 @@ echo PROGRESS: Creating control shared file.
 # Removing any non-control groups from shared file
 mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${CONTROLGROUPS}")"
 
+
+
+# Buffer shared file
+echo PROGRESS: Creating control shared file.
+
+# Removing any non-control groups from shared file
+mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${BUFFERGROUPS}")"
+
 # Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/control.final.shared
+mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/buffer.final.shared
