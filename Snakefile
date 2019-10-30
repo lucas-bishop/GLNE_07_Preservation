@@ -115,7 +115,7 @@ rule split16SShared:
 			group = mothurGroups)
 	params:
 		mockGroups='-'.join(mothurMock), # Concatenates all mock group names with hyphens
-		controlGroups='-'.join(mothurControl) # Concatenates all control group names with hyphens
+		controlGroups='-'.join(mothurControl), # Concatenates all control group names with hyphens
 		bufferGroups='-'.join(mothurBuffer) # Concatenates all control group names with hyphens
 	conda:
 		"envs/mothur.yaml"
