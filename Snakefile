@@ -5,8 +5,9 @@
 # Snakemake file for running mothur pipeline in GLNE07_Preservation_Bias_XXXX_20XX
 
 # NOTE: Change these settings before running workflow
-mothurMock = ['Mock1-Mock2-Mock3-Mock4-Mock5-Mock5-Mock6-Mock7-Mock8-MockCells1-MockCells2']
-mothurControl = ['Neg1-Neg2-Neg3-Neg4-Neg5-Neg6-Neg7-Neg8']
+mothurMock = ['Mock1', 'Mock2', 'Mock3', 'Mock4', 'Mock5', 'Mock5', 'Mock6', 'Mock7', 'Mock8', 'MockCells1', 'MockCells2']
+mothurControl = ['Neg1', 'Neg2', 'Neg3', 'Neg4', 'Neg5', 'Neg6', 'Neg7', 'Neg8']
+mothurBuffer = ['Water5a', 'Water5b', 'Water6a', 'Water6b', 'Water7a', 'Water7b', 'bufferP1.1', 'bufferP1.2', 'bufferP2.1', 'bufferP2.1b', 'bufferP2.2', 'bufferP2.2b', 'bufferP2.3', 'bufferP2.4', 'bufferP2.5']
 mothurAlpha = ['nseqs','coverage','invsimpson','shannon','sobs']
 mothurBeta = ['sharedsobs','thetayc','braycurtis']
 
