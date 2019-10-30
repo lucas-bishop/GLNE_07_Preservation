@@ -63,7 +63,7 @@ rule get16SReferences:
 		rdpFasta="data/mothur/references/trainset16_022016.pds.fasta",
 		rdpTax="data/mothur/references/trainset16_022016.pds.tax"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script}"
 
@@ -75,7 +75,7 @@ rule get16SMock:
 	output:
 		mockV4="data/mothur/references/zymo.mock.16S.v4.fasta"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script}"
 
@@ -101,7 +101,7 @@ rule make16SShared:
 		errorFasta="data/mothur/process/errorinput.fasta",
 		errorCount="data/mothur/process/errorinput.count_table"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} data/mothur/raw/ {input.refs}"
 
@@ -118,7 +118,7 @@ rule split16SShared:
 		controlGroups='-'.join(mothurControl), # Concatenates all control group names with hyphens
 		bufferGroups='-'.join(mothurBuffer) # Concatenates all control group names with hyphens
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {params.mockGroups} {params.controlGroups} {params.bufferGroups}"
 
@@ -130,7 +130,7 @@ rule count16SShared:
 	output:
 		count="data/mothur/process/{group}.final.count.summary"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.shared}"
 
@@ -143,7 +143,7 @@ rule subsample16SShared:
 	output:
 		subsampleShared="data/mothur/process/{group}.final.0.03.subsample.shared"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.shared} {input.count}"
 
@@ -164,7 +164,7 @@ rule rarefy16SReads:
 	output:
 		rarefaction="data/mothur/process/sample.final.groups.rarefaction"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.shared}"
 
@@ -179,7 +179,7 @@ rule calc16SAlphaDiversity:
 	params:
 		alpha='-'.join(mothurAlpha) # Concatenates all alpha metric names with hyphens
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.shared} {input.count} {params.alpha}"
 
@@ -195,7 +195,7 @@ rule calc16SBetaDiversity:
 	params:
 		beta='-'.join(mothurBeta) # Concatenates all beta metric names with hyphens
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.shared} {input.count} {params.beta}"
 
@@ -217,7 +217,7 @@ rule calc16SPCoA:
 		loadings="data/mothur/process/sample.final.{beta}.0.03.lt.ave.pcoa.loadings",
 		axes="data/mothur/process/sample.final.{beta}.0.03.lt.ave.pcoa.axes"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.dist}"
 
@@ -230,7 +230,7 @@ rule calc16SNMDS:
 		stress="data/mothur/process/sample.final.{beta}.0.03.lt.ave.nmds.stress",
 		axes="data/mothur/process/sample.final.{beta}.0.03.lt.ave.nmds.axes"
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.dist}"
 
@@ -255,6 +255,6 @@ rule calc16SError:
 	params:
 		mockGroups='-'.join(mothurMock) # Concatenates all mock group names with hyphens
 	conda:
-		"envs/mothur.yaml"
+		"envs/glne.yaml"
 	shell:
 		"bash {input.script} {input.errorFasta} {input.errorCount} {input.mockV4} {params.mockGroups}"
