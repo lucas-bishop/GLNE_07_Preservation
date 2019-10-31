@@ -123,7 +123,7 @@ rule split16SShared:
 	conda:
 		"envs/glne.yaml"
 	shell:
-		"bash {input.script} {params.mockGroups} {params.controlGroups} {params.bufferGroups} {params.mockcellsGroups}"
+		"bash {input.script} {params.mockGroups} {params.controlGroups} {params.bufferGroups} {params.cellsGroups}"
 
 
 rule count16SShared:
