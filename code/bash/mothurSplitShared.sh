@@ -52,25 +52,3 @@ mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${CONTROLGROUPS}")"
 
 # Renaming output file
 mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/control.final.shared
-
-
-
-# Buffer shared file
-echo PROGRESS: Creating buffer shared file.
-
-# Removing any non-control groups from shared file
-mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${BUFFERGROUPS}")"
-
-# Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/buffer.final.shared
-
-
-
-# MockCells shared file
-echo PROGRESS: Creating mock cells shared file.
-
-# Removing any non-control groups from shared file
-mothur "#get.groups(shared="${OUTDIR}"/final.shared, groups="${CELLSGROUPS}")"
-
-# Renaming output file
-mv "${OUTDIR}"/final.0.03.pick.shared "${OUTDIR}"/cells.final.shared
