@@ -11,6 +11,8 @@ mothurControl = ['Neg1', 'Neg2', 'Neg3', 'Neg4', 'Neg5', 'Neg6', 'Neg7', 'Neg8']
 
 mothurBuffer = ['Water5a', 'Water5b', 'Water6a', 'Water6b', 'Water7a', 'Water7b', 'bufferP1.1', 'bufferP1.2', 'bufferP2.1', 'bufferP2.1b', 'bufferP2.2', 'bufferP2.2b', 'bufferP2.3', 'bufferP2.4', 'bufferP2.5']
 
+mothurMockCells = ['MockCells1', 'MockCells2']
+
 mothurAlpha = ['nseqs','coverage','invsimpson','shannon','sobs']
 
 mothurBeta = ['sharedsobs','thetayc','braycurtis']
@@ -19,7 +21,7 @@ mothurBeta = ['sharedsobs','thetayc','braycurtis']
 readNum = ['R1', 'R2']
 mothurSamples = list(set(glob_wildcards(os.path.join('/nfs/turbo/schloss-lab/begumtop/glne_sequences/', '{sample}_{readNum, R[12]}_001.fastq.gz')).sample))
 
-mothurGroups = ['sample','mock','control','buffer']
+mothurGroups = ['sample','mock','control','buffer', 'mockcells']
 
 
 
@@ -116,11 +118,12 @@ rule split16SShared:
 	params:
 		mockGroups='-'.join(mothurMock), # Concatenates all mock group names with hyphens
 		controlGroups='-'.join(mothurControl), # Concatenates all control group names with hyphens
-		bufferGroups='-'.join(mothurBuffer) # Concatenates all control group names with hyphens
+		bufferGroups='-'.join(mothurBuffer), # Concatenates all control group names with hyphens
+		mockcellsGroups='-'.join(mothurMockCells) # Concatenates all control group names with hyphens
 	conda:
 		"envs/glne.yaml"
 	shell:
-		"bash {input.script} {params.mockGroups} {params.controlGroups} {params.bufferGroups}"
+		"bash {input.script} {params.mockGroups} {params.controlGroups} {params.bufferGroups} {params.mockcellsGroups}"
 
 
 rule count16SShared:
