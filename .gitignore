@@ -4,3 +4,4 @@ data/mothur/raw/*
 data/mothur/process/intermediate/*
 data/mothur/process/*
 data/mothur/references/*
+*.logfile
