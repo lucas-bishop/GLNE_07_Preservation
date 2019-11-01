@@ -5,3 +5,5 @@ data/mothur/process/intermediate/*
 data/mothur/process/*
 data/mothur/references/*
 *.logfile
+logs/*
+core*

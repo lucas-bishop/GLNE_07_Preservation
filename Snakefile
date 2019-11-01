@@ -90,7 +90,7 @@ rule get16SMock:
 rule make16SShared:
 	input:
 		script="code/bash/mothurShared.sh",
-		raw=expand('data/mothur/raw/{mothurSamples}_{readNum}_001.fastq.gz',
+		raw=expand('../glne_sequences/{mothurSamples}_{readNum}_001.fastq.gz',
 			mothurSamples = mothurSamples, readNum = readNum),
 		refs=rules.get16SReferences.output
 	output:
