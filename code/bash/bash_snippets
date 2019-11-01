@@ -48,3 +48,46 @@ rename 'Neg3b' Water7b *.gz
 rename 'Neg3c' Neg7 *.gz
 
 rename 'Neg4_S384' Neg8 *.gz
+
+
+rename 'mock1' Mock9 *.gz
+rename 'mock2' Mock10 *.gz
+rename 'mock3' Mock11 *.gz
+rename 'mock4' Mock12 *.gz
+rename 'buffer4' BufferP12.2 *.gz
+
+rename 'water1' Neg9 *gz
+rename 'water2' 'Water9' *.gz
+rename 'water4' 'Water10' *.gz
+rename 'water5' Neg11 *gz
+rename 'water6' 'Water11' *.gz
+rename 'water7' 'Water12' *.gz
+rename 'water8' Neg12 *gz
+
+rename 'pcr-water1' Neg13 *gz
+rename 'pcr-water2' Neg14 *gz
+rename 'pcr-water3' Neg15 *gz
+rename 'pcr-water4' Neg16 *gz
+
+rename 'water1' 'Water13.1' *.gz
+rename 'water2' 'Water13.2' *.gz
+rename 'water3' 'Water14.1' *.gz
+rename 'water4' 'Water14.2' *.gz
+rename 'water5' 'Water15.1' *.gz
+rename 'water6' 'Water15.2' *.gz
+rename 'water7' 'Water16.1' *.gz
+rename 'water8' 'Water16.2' *.gz
+
+rename 'mock1' Mock13 *.gz
+rename 'mock2' Mock14 *.gz
+rename 'mock3' Mock15 *.gz
+rename 'mock4' Mock16 *.gz
+
+rename 'buffer1' bufferP13.1 *gz
+rename 'buffer2' bufferP13.2 *gz
+rename 'buffer3' bufferP14.1 *gz
+rename 'buffer4' bufferP14.2 *gz
+rename 'buffer5' bufferP15.1 *gz
+rename 'buffer6' bufferP15.2 *gz
+rename 'buffer7' bufferP16.1 *gz
+rename 'buffer8' bufferP16.2 *gz

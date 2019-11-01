@@ -35,7 +35,7 @@ fi
 
 
 # Making log directory
-mkdir logs/pbs/
+#mkdir logs/pbs/
 
 # Initiating snakemake and running workflow in cluster mode
 snakemake --use-conda --profile config/pbs-torque/ --latency-wait 90

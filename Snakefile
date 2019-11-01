@@ -5,9 +5,9 @@
 # Snakemake file for running mothur pipeline in GLNE07_Preservation_Bias_XXXX_20XX
 
 # NOTE: Change these settings before running workflow
-mothurMock = ['Mock1', 'Mock2', 'Mock3', 'Mock4', 'Mock5', 'Mock6', 'Mock7', 'Mock8', 'MockCells1', 'MockCells2']
+mothurMock = ['Mock1', 'Mock2', 'Mock3', 'Mock4', 'Mock5', 'Mock6', 'Mock7', 'Mock8', 'Mock9', 'Mock10', 'Mock11', 'Mock12','Mock13','Mock14', 'MockCells1', 'MockCells2']
 
-mothurControl = ['Neg1','Neg2','Neg3','Neg4','Neg5','Neg6','Neg7','Neg8','Water5a','Water5b','Water6a', 'Water6b', 'Water7a','Water7b','bufferP1.1','bufferP1.2','bufferP2.1','bufferP2.1b','bufferP2.2','bufferP2.2b','bufferP2.3','bufferP2.4','bufferP2.5']
+mothurControl = ['Neg1','Neg2','Neg3','Neg4','Neg5','Neg6','Neg7','Neg8','Neg9','Neg10','Neg11','Neg12','Neg13','Neg14','Neg15','Neg16','Water5a','Water5b','Water6a','Water6b','Water7a','Water7b','Water9','Water10','Water11','Water12','Water13.1','Water13.2','Water14.1','Water14.2','Water15.1','Water15.2','Water16.1','Water16.2','bufferP1','bufferP2','bufferP5.1','bufferP5.2','bufferP6.1','bufferP6.2','bufferP7.1','bufferP7.2','bufferP8','bufferP9','bufferP10','bufferP11','bufferP12', 'BufferP12.2', 'bufferP13.1','bufferP13.2','bufferP14.1','bufferP14.2','bufferP15.1','bufferP15.2','bufferP16.1','bufferP16.2']
 
 mothurAlpha = ['nseqs','coverage','invsimpson','shannon','sobs']
 
