@@ -101,7 +101,7 @@ rule make16SShared:
 	conda:
 		"envs/glne.yaml"
 	shell:
-		"bash {input.script} data/mothur/raw/ {input.refs}"
+		"bash {input.script} ../glne_sequences/ {input.refs}"
 
 
 rule split16SShared:
