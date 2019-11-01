@@ -13,6 +13,17 @@ rename 'buffer3' bufferP2.3 *.gz
 rename 'buffer4' bufferP2.4 *.gz
 rename 'buffer5' bufferP2.5 *.gz
 
+rename 'bufferP1.1' bufferP1 *gz
+rename 'bufferP1.2' bufferP2 *gz
+rename 'bufferP2.1b' bufferP5.2 *gz
+rename 'bufferP2.1'  bufferP5.1 *gz
+rename 'bufferP2.2b' bufferP6.2 *gz
+rename 'bufferP2.2'  bufferP6.1 *gz
+rename 'bufferP2.3' bufferP7.1 *gz
+rename 'bufferP2.4'  bufferP7.2 *gz
+rename 'bufferP2.5' bufferP8 *gz
+
+
 rename 'mock' Mock *.gz
 rename 'water' Neg *.gz
 
