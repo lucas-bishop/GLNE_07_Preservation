@@ -50,11 +50,11 @@ rarefy16SReads:
 
 calc16SAlphaDiversity:
   ppn: 12
-  walltime: "45:00"
+  walltime: "5:00:00"
 
 calc16SBetaDiversity:
   ppn: 12
-  walltime: "3:00:00"
+  walltime: "5:00:00"
 
 calc16SPCoA:
   ppn: 6
