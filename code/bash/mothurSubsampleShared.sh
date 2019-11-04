@@ -13,7 +13,7 @@ export SHARED=${1:?ERROR: Need to define SHARED.} # Shared file
 export COUNT=${2:?ERROR: Need to define COUNT.} # Count file generated from shared file
 
 # Setting threshold for minimum number of reads to subsample
-export SUBTHRESH=5000
+export SUBTHRESH=2000
 
 
 

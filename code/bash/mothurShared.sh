@@ -49,7 +49,8 @@ mothur "#make.file(type=gz, inputdir="${SAMPLEDIR}", outputdir="${OUTDIR}");
 	dist.seqs(fasta=current, cutoff=0.03);
 	cluster(column=current, count=current);
 	make.shared(list=current, count=current, label=0.03);
-	classify.otu(list=current, count=current, taxonomy=current, label=0.03)"
+	classify.otu(list=current, count=current, taxonomy=current, label=0.03);
+	get.oturep(fasta=current, count=current, list=current, label=0.03, method=abundance)"
 
 
 
@@ -58,6 +59,8 @@ mv "${OUTDIR}"/*.precluster.pick.pick.fasta "${OUTDIR}"/errorinput.fasta
 mv "${OUTDIR}"/*.vsearch.pick.pick.count_table "${OUTDIR}"/errorinput.count_table
 mv "${OUTDIR}"/*.opti_mcc.shared "${OUTDIR}"/final.shared
 mv "${OUTDIR}"/*.cons.taxonomy "${OUTDIR}"/final.taxonomy
+mv "${OUTDIR}"/*.0.03.rep.fasta "${OUTDIR}"/final.rep.seqs
+mv "${OUTDIR}"/*.0.03.rep.count_table "${OUTDIR}"/final.rep.count_table
 
 
 ###############

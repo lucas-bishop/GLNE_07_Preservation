@@ -14,7 +14,7 @@ export COUNT=${2:?ERROR: Need to define COUNT.} # Count file generated from shar
 export BETA=${3:?ERROR: Need to define BETA.} # Names of mothur beta metrics joined by hyphens
 
 # Setting threshold for minimum number of reads to subsample
-export SUBTHRESH=5000
+export SUBTHRESH=2000
 
 
 
