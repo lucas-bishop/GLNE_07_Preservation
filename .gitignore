@@ -7,3 +7,5 @@ data/mothur/references/*
 *.logfile
 logs/*
 core*
+.Rproj.user
+data/temp/*
